@@ -1,0 +1,27 @@
+plugins {
+    id 'application'
+    id 'org.graalvm.buildtools.native' version '0.9.5'
+}
+
+repositories {
+    mavenCentral()
+}
+
+group = 'hint'
+
+sourceCompatibility = '16'
+targetCompatibility = '16'
+
+dependencies {
+    implementation 'org.jetbrains:annotations:21.0.1'
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.12.5'
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.8.0'
+}
+
+application {
+    mainClass = 'hint.App'
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}
